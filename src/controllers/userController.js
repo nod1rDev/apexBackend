@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
-// Foydalanuvchi ro'yxatdan o'tkazish
+// Foydalanuvchi ro'yxatdan o'tkazishs
 exports.registerUser = async (req, res) => {
   const { username, password } = req.body;
   try {
