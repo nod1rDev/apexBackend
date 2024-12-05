@@ -4,7 +4,7 @@
   "description": "Node.js backend for video app",
   "main": "src/index.js",
   "engines": {
-    "node": "14.x"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "nodemon src/index.js",
