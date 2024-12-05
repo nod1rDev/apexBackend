@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const videoRoutes = require("./routes/videoRoutes"); // Modul yo‘li to‘g‘rilandi
-const userRoutes = require("./routes/userRoutes");  // Modul yo‘li to‘g‘rilandi
+const userRoutes = require("./routes/userRoutes"); // Modul yo‘li to‘g‘rilandi
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
@@ -30,7 +30,12 @@ app.use("/uploads", express.static(uploadDir));
 
 // MongoDB ulanishi
 mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    connectTimeoutMS: 30000, // Ulanish uchun 30 soniya kutadi
+    socketTimeoutMS: 45000, // Ma'lumotlar uchun 45 soniya kutadi
+  })
   .then(() => console.log("MongoDB ulanishi muvaffaqiyatli"))
   .catch((err) => console.error("MongoDB ulanishida xatolik:", err));
 
