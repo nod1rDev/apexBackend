@@ -37,25 +37,39 @@ const upload = multer({
 exports.uploadVideo = [
   upload.single("video"), // "video" maydonidan faylni olish
   async (req, res) => {
-    const { title, genre, duration, description, imgUrl, releaseDate, rating, isFilm } =
-      req.body;
+    const {
+      title,
+      genre,
+      duration,
+      description,
+      imgUrl,
+      releaseDate,
+      rating,
+      isFilm,
+    } = req.body;
 
-    if (!req.file && isFilm === 'true') {
+    if (!req.file && isFilm === "true") {
       return res.status(400).json({ message: "No video file uploaded" });
     }
 
     // Validate required fields based on isFilm
-    const requiredFields = isFilm === 'true' ? ['title', 'genre', 'duration', 'description', 'releaseDate', 'rating'] : ['title', 'description', 'imgUrl'];
+    const requiredFields =
+      isFilm === "true"
+        ? ["title", "genre", "duration", "description", "releaseDate", "rating"]
+        : ["title", "description", "imgUrl"];
     for (const field of requiredFields) {
       if (!req.body[field]) {
         return res.status(400).json({ message: `${field} is required` });
       }
     }
 
-    const filePath = isFilm === 'true' ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}` : null;
+    const filePath =
+      isFilm === "true"
+        ? `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`
+        : null;
 
     // Convert duration to hours and minutes
-    let formattedDuration = '';
+    let formattedDuration = "";
     if (duration) {
       const hours = Math.floor(duration / 60);
       const minutes = duration % 60;
@@ -71,7 +85,7 @@ exports.uploadVideo = [
         imgUrl,
         releaseDate,
         rating,
-        isFilm: isFilm === 'true', // Convert to boolean
+        isFilm: isFilm === "true", // Convert to boolean
         filePath,
       });
       res

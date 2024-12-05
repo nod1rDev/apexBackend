@@ -2,13 +2,10 @@
   "name": "video-app",
   "version": "1.0.0",
   "description": "Node.js backend for video app",
-  "main": "src/index.js",
-  "engines": {
-    "node": "22.x"
-  },
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

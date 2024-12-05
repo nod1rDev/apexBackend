@@ -5,7 +5,7 @@ const {
   deleteVideo,
   searchAndFilterVideos,
   getVideoById,
-} = require("../controllers/videoController");
+} = require("../../controllers/videoController");
 
 const router = express.Router();
 
