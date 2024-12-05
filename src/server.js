@@ -33,8 +33,9 @@ mongoose
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    connectTimeoutMS: 30000, // Ulanish uchun 30 soniya kutadi
-    socketTimeoutMS: 45000, // Ma'lumotlar uchun 45 soniya kutadi
+    connectTimeoutMS: 60000, // 1 daqiqaga oshiring
+    socketTimeoutMS: 60000,
+    serverSelectionTimeoutMS: 60000, // Serverni tanlash uchun kutish vaqtini oshiring
   })
   .then(() => console.log("MongoDB ulanishi muvaffaqiyatli"))
   .catch((err) => console.error("MongoDB ulanishida xatolik:", err));
