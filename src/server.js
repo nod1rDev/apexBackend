@@ -45,7 +45,7 @@ app.use("/api/videos", videoRoutes);
 app.use("/api/users", userRoutes);
 
 // Serverni ishga tushurish
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server http://localhost:${PORT} da ishlayapti`);
 });
