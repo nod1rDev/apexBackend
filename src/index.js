@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const videoRoutes = require("../src/routes/videoRoutes"); // Modul yo‘li to‘g‘rilandi
-const userRoutes = require("../src/routes/userRoutes"); // Modul yo‘li to‘g‘rilandi
+const videoRoutes = require("./routes/videoRoutes"); // Modul yo‘li to‘g‘rilandi
+const userRoutes = require("./routes/userRoutes"); // Modul yo‘li to‘g‘rilandi
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
